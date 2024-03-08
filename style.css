@@ -1,0 +1,110 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-family: "Poppins",sans-serif;
+    background-image: linear-gradient(pink,lightblue,palevioletred);
+}
+
+.birthday-present {
+    position: relative;
+    margin-top: 6rem;
+}
+
+.birthday-present:before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -20px;
+    width: 190px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.present {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background-color: pink;
+}
+
+.present:before {
+    position: absolute;
+    content: "";
+    left: 62px;
+    width: 25px;
+    height: 100px;
+    background-color: palevioletred;
+}
+
+.present:after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#invisible-checkbox {
+    display: none;
+}
+
+.cover {
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    width: 170px;
+    height: 40px;
+    transform-origin: bottom left;
+    border: 1px solid transparent;
+    background-color: palevioletred;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cover:before {
+    content: "";
+    position: absolute;
+    left: 71px;
+    width: 25px;
+    height: 40px;
+    background-color: pink;
+}
+
+.cover:after {
+    content: "";
+    position: absolute;
+    top: -33px;
+    left: 72px;
+    width: 5px;
+    height: 0;
+    transform: rotate(-90deg);
+    border-top: 20px solid pink;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid pink;
+    border-left: 0px solid transparent;
+    border-radius: 5px;
+}
+
+.happybirthday {
+    z-index: -1;
+    position: absolute;
+    left: 12px;
+    font-weight: 700;
+    color: black;
+    text-shadow: 1px 1px 1px palevioletred;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: 0.6s;
+    opacity: 0;
+}
+
+#invisible-checkbox:checked + .cover {
+    transform: rotate(-105deg) scaleX(0.8);
+}
+
+#invisible-checkbox:checked ~ .happybirthday {
+    transform: translateY(-70px);
+    opacity: 1;
+}
